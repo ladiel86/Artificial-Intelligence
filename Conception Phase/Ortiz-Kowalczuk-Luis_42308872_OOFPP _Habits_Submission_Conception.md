@@ -56,5 +56,15 @@ The lifecycle of a successfully completed habit is as follows:
 
 ```mermaid
 graph TD;
-   Trigger new habbit-->Fill out the following data;
+    id1([Trigger new habbit])
+    newLines["`Fill out the following data:
+    - start date
+    - end date
+    - task frequency`"]
+    id2[All tasks created]
+    id3[Newest task completed]
+    id4{All tasks completed?}
+    id5([Habit completed])
+id1-->newLines-->id2-->id3-->id4--YES-->id5;
+id4--NO-->id3;
 ```
