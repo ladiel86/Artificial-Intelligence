@@ -11,12 +11,14 @@ main.resizable(0,0)
 '''
 Main window toolbar
 '''
-profileMenu = Menubutton(main, text = "Profile")
-profileMenu.grid()
-profileMenu.menu = Menu(profileMenu, tearoff = 0)
-profileMenu["menu"] = profileMenu.menu
-cVar = IntVar()
-aVar = IntVar()
-profileMenu.menu.add(label = "New profile", variable = cVar)
-profileMenu.menu.add(label = "Load profile", variable = aVar)
-profileMenu.pack()
+def new_profile():
+   print("New profile...")
+
+def load_profile():
+   print("Load profile...")
+
+menu = Menu(main)
+profileMenu = Menu(menu, tearoff = False)
+profileMenu.add_command(label = "New profile", command = new_profile)
+profileMenu.add_command(label = "Load profile", command = load_profile)
+menu.add_cascade(label = "Profile", menu = profileMenu)
